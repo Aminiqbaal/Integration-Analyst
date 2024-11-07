@@ -1,0 +1,45 @@
+Method /GET
+Endpoint 
+    {{host}}ms-loan/private/v1/loan-status{applicationId}
+REQ
+    Header
+    channel:{{CHANNEL}}
+    X-localization:{{LANGUAGE}}
+    x-api-Key:{{API_KEY}}
+    Authorization: Bearer Token
+    Content-Type: application/json
+    
+RESP
+//Success
+{
+    "status": true,
+    "code": "200",
+    "message": true,
+    "errorMessage": null,
+    "errorData": null,
+    "data": [
+        {
+            "message": "Loan application submitted successfully",
+            "applicationId": "213rsaftw5"
+        }
+    ]        
+    
+}
+//Error 400 Bad Request 
+{
+    "status": false,
+    "code": "400 ",
+    "message": true,
+    "errorMessage": "Invalid loan amount or loan term",
+    "errorData": null,
+    "data": []
+}
+//Error 401 Unauthorized 
+{
+    "status": false,
+    "code": "400 ",
+    "message": true,
+    "errorMessage": "User not authorized",
+    "errorData": null,
+    "data": []
+}

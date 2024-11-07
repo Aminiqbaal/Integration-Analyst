@@ -1,0 +1,14 @@
+Nama Endpoint : {{host}}ms-loan/v1/loan-apply
+Method: POST
+Jenis Endpoint: Public
+Nama Microservice : ms-loan
+Versi Endpoint: v1
+Tujuan Endpoint: Endpoint ini memungkinkan pengguna untuk mengajukan pinjaman dengan menentukan jumlah pinjaman, durasi, dan tujuan pinjaman. Endpoint ini akan menginisialisasi pengajuan pinjaman di sistem dan mengembalikan informasi terkait pengajuan tersebut.
+Request Body :
+1. user_id (String): ID pengguna yang mengajukan pinjaman.
+2. loan_amount (Integer): Jumlah pinjaman yang diajukan dalam Rupiah.
+3. loan_duration (Integer): Durasi pinjaman dalam bulan.
+4. purpose (String): Tujuan penggunaan pinjaman.
+
+Error (400 Bad Request): Jika data pengajuan tidak valid (contoh: jumlah pinjaman terlalu rendah atau durasi tidak sesuai).
+Error (401 Unauthorized): Jika token tidak valid atau pengguna belum login

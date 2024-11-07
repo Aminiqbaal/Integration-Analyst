@@ -1,0 +1,5 @@
+Nama Endpoint: {{host}}ms-loan/v1/loan-repayment
+Method: POST
+Microservice: Repayment
+Endpoint Versioning: v1
+Jenis Endpoint: Private

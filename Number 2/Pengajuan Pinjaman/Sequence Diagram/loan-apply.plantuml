@@ -1,0 +1,16 @@
+@startuml
+
+actor User
+participant "Mobile App" as App
+box "Microservice" #LightBlue
+participant "Loan" as LoanService
+end box
+database "Loan" as DB
+
+User -> App ++: Submit Loan Application
+App -> LoanService++ : POST /v1/loan-apply
+LoanService -> DB++ : Insert Application Data
+DB --> LoanService-- : Return Application ID
+LoanService --> App-- : Created with Application ID
+App -> User-- : Display Submission Success Message
+@enduml

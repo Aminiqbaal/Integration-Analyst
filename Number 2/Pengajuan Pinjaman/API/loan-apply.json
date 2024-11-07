@@ -1,0 +1,62 @@
+Method /POST
+Endpoint 
+    {{host}}ms-loan/v1/loan-apply
+REQ
+    Header
+    channel:{{CHANNEL}}
+    X-localization:{{LANGUAGE}}
+    x-api-Key:{{API_KEY}}
+    Authorization: Bearer Token
+    Content-Type: application/json
+    
+    Body
+    {
+        "user_id": "2141rfsd",
+        "loan_amount": "100000",
+        "loan_term": "12",
+        "purpose": "berobat"
+    }
+      
+RESP
+//Success
+{
+    "status": true,
+    "code": "200",
+    "message": true,
+    "errorMessage": null,
+    "errorData": null,
+    "data": [
+        {
+            "loan_id": "214 rfwef",
+            "message": "Loan application successfully submitted"
+        }
+    ]        
+    
+}
+//Error (400 Bad Request): Jika data pengajuan tidak valid (contoh: jumlah pinjaman terlalu rendah atau durasi tidak sesuai).
+{
+    "status": false,
+    "code": "400",
+    "message": true,
+    "errorMessage": "Invalid loan amount or duration.",
+    "errorData": null,
+    "data": []
+}
+//Error (401 Unauthorized): Jika token tidak valid atau pengguna belum login.
+{
+    "status": false,
+    "code": "401",
+    "message": true,
+    "errorMessage": "Unauthorized access. Please log in to apply for a loan.",
+    "errorData": null,
+    "data": []
+}
+//Error (500 Internal Server Error): Jika terjadi kesalahan pada server saat memproses permintaan.
+{
+    "status": false,
+    "code": "401",
+    "message": true,
+    "errorMessage": "An error occurred while processing your loan application. Please try again later.",
+    "errorData": null,
+    "data": []
+}

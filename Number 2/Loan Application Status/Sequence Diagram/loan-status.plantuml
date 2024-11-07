@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant "Mobile App" as App
+box "Microservice" #LightBlue
+participant "Loan" as LoanService
+end box
+database "Loan" as DB
+
+User -> App ++: Check Loan Status
+App -> LoanService ++: GET /v1/loan/status/{applicationId}
+LoanService -> DB++ : Fetch Application Status
+DB --> LoanService-- : Return Application Data
+LoanService --> App-- : Return data
+App -> User-- : Display Status to User
+@enduml

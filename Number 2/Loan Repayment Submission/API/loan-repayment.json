@@ -1,0 +1,44 @@
+Method /POST
+Endpoint 
+    {{host}}ms-loan/v1/loan-repayment
+REQ
+    Header
+    channel:{{CHANNEL}}
+    X-localization:{{LANGUAGE}}
+    x-api-Key:{{API_KEY}}
+    Authorization: Bearer Token
+    Content-Type: application/json
+    
+    Body
+    {
+        "applicationId": "234fcg",
+        "repaymentAmount": 500000,
+        "paymentDate": "2024-11-07"
+    }
+      
+      
+RESP
+//Success
+{
+    "status": true,
+    "code": "200",
+    "message": true,
+    "errorMessage": null,
+    "errorData": null,
+    "data": [
+        {
+            "message": "Repayment recorded successfully",
+            "remainingBalance": 500000
+        }
+    ]        
+    
+}
+//Error 400 
+{
+    "status": false,
+    "code": "400 ",
+    "message": true,
+    "errorMessage": "Repayment amount exceeds remaining balance",
+    "errorData": null,
+    "data": []
+}

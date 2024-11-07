@@ -1,0 +1,5 @@
+Nama Endpoint: {{host}}ms-loan/private/v1/loan-status{applicationId}
+Method: GET
+Microservice: Loan
+Endpoint Versioning: v1
+Jenis Endpoint: Private (hanya bisa diakses oleh pengguna atau admin yang memiliki hak akses)
